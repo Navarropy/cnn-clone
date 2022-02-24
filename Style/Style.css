@@ -53,7 +53,7 @@ body {
 }
 .main-wrapper .cnn {
   position: relative;
-  width: 98vw;
+  width: 1208px;
   height: 95vh;
 }
 .main-wrapper .cnn-wrapper {
@@ -101,7 +101,7 @@ body {
 .main-wrapper .cnn-wrapper .top .logo-top .breaking-news {
   position: relative;
   display: flex;
-  width: 24%;
+  width: 150px;
   height: auto;
   background: black;
   color: white;
