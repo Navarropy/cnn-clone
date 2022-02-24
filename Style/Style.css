@@ -1,3 +1,22 @@
+@keyframes glow {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(350%);
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(350%);
+    opacity: 0;
+  }
+}
 * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
@@ -8,26 +27,34 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
-  background: green;
 }
 
 .main {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 .main-wrapper {
   position: relative;
-  width: 100%;
-  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.main-wrapper video {
+  position: absolute;
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 .main-wrapper .cnn {
   position: relative;
-  width: 98%;
-  height: 95%;
+  width: 98vw;
+  height: 95vh;
 }
 .main-wrapper .cnn-wrapper {
   position: relative;
@@ -38,7 +65,7 @@ body {
   justify-content: space-between;
 }
 .main-wrapper .cnn-wrapper .top {
-  width: 100%;
+  min-width: 100;
   height: 15%;
   display: flex;
   justify-content: flex-end;
@@ -46,7 +73,6 @@ body {
 .main-wrapper .cnn-wrapper .top .logo-top {
   width: 40%;
   height: 30%;
-  background: gray;
   display: flex;
   justify-content: flex-end;
 }
@@ -57,7 +83,9 @@ body {
   background: gold;
   display: inline-block !important;
   left: 0;
-  clip-path: polygon(25% 0%, 49% 0, 25% 100%, 0% 100%);
+  opacity: 0;
+  animation: glow 3s infinite;
+  animation-delay: 4s;
 }
 .main-wrapper .cnn-wrapper .top .logo-top .logo {
   width: 15%;
@@ -65,8 +93,7 @@ body {
   position: relative;
   color: red;
   font-weight: bold;
-  font-size: 25px;
-  background: green;
+  font-size: 175%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -92,7 +119,7 @@ body {
   justify-content: space-between;
 }
 .main-wrapper .cnn-wrapper .bottom .breaking-news-container {
-  width: 100%;
+  max-width: 100%;
   height: 75%;
   display: flex;
   justify-content: space-between;
@@ -104,9 +131,10 @@ body {
   display: flex;
   flex-direction: column;
   border-left: 10px solid red;
+  overflow: hidden;
 }
 .main-wrapper .cnn-wrapper .bottom .breaking-news-container .left .breaking-news {
-  width: 15%;
+  width: 200px;
   height: 25%;
   background: red;
   display: flex;
@@ -114,10 +142,10 @@ body {
   align-items: center;
   color: white;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 130%;
 }
 .main-wrapper .cnn-wrapper .bottom .breaking-news-container .left .header {
-  width: 100%;
+  width: 1400px;
   height: 45%;
   background: white;
   color: black;
@@ -129,7 +157,7 @@ body {
   padding-left: 10px;
 }
 .main-wrapper .cnn-wrapper .bottom .breaking-news-container .left .sub-header {
-  width: 100%;
+  width: 1400px;
   height: 30%;
   background: black;
   color: white;
@@ -144,7 +172,6 @@ body {
   position: relative;
   width: 10%;
   height: 100%;
-  background: gray;
   display: flex;
   flex-direction: column;
   font-weight: bold;
@@ -186,7 +213,6 @@ body {
   width: 100%;
   height: 20%;
   position: relative;
-  background: gray;
   display: flex;
 }
 .main-wrapper .cnn-wrapper .bottom .related .contact {
