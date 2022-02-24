@@ -1,0 +1,245 @@
+@mixin wrapper() {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin center() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$paddingValue: 10;
+@mixin breaking-news-spacing {
+    padding-left: #{$paddingValue}px;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: green;
+}
+
+.main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &-wrapper {
+        @include wrapper;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .cnn {
+            position: relative;
+            width: 98%;
+            height: 95%;
+            
+            &-wrapper {
+                @include wrapper;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .top {
+                    width: 100%;
+                    height: 15%;
+                    display: flex;
+                    justify-content: flex-end;
+
+                    .logo-top {
+                        width: 40%;
+                        height: 30%;
+                        background: gray;
+                        display: flex;
+                        justify-content: flex-end;
+                        
+                        .glow {
+                            position: absolute;
+                            width: 22%;
+                            height: 100%;
+                            background: gold;
+                            display: inline-block !important;
+                            left: 0;
+                            clip-path: polygon(25% 0%, 49% 0, 25% 100%, 0% 100%);
+                        }
+
+                        .logo {
+                            width: 15%;
+                            height: auto;
+                            position: relative;
+                            color: red;
+                            font-weight: bold;
+                            font-size: 25px;
+                            background: green;
+                            display: flex;
+                            justify-content: flex-end;
+                            align-items: center;
+                        }
+
+                        .breaking-news {
+                            position: relative;
+                            display: flex;
+                            width: 24%;
+                            height: auto;
+                            background: black;
+                            color: white;
+                            font-weight: bold;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                    }
+                }
+
+                .bottom {
+                    width: 100%;
+                    height: 30%;
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    align-self: flex-end;
+                    justify-content: space-between;
+
+                    .breaking-news-container {
+                        width: 100%;
+                        height: 75%;
+                        display: flex;
+                        justify-content: space-between;
+                        
+                        .left {
+                            position: relative;
+                            width: 89.5%;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            border-left: 10px solid red;
+                            
+                            .breaking-news {
+                                width: 15%;
+                                height: 25%;
+                                background: red;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                color: white;
+                                font-weight: bold;
+                                font-size: 20px;
+                            }
+
+                            .header {
+                                width: 100%;
+                                height: 45%;
+                                background: white;
+                                color: black;
+                                font-weight: bold;
+                                font-size: 40px;     
+                                display: flex;
+                                align-items: center;
+                                text-transform: uppercase;
+                                @include breaking-news-spacing();
+                            }
+
+                            .sub-header {
+                                width: 100%;
+                                height: 30%;
+                                background: black;
+                                color: white;
+                                display: flex;
+                                align-items: center;
+                                font-size: 25px;
+                                letter-spacing: 2px;
+                                word-spacing: 5px;
+                                @include breaking-news-spacing();
+                            }
+
+                        }
+
+                        .right {
+                            position: relative;
+                            width: 10%;
+                            height: 100%;
+                            background: gray;
+                            display: flex;
+                            flex-direction: column;
+                            font-weight: bold;
+
+                            .live {
+                                width: 100%;
+                                height: 25%;
+                                background: white;
+                                position: relative;
+                                color: black;
+                                letter-spacing: 5px;
+                                font-size: 30px;
+                                @include center;
+                            }
+
+                            .logo {
+                                width: 100%;
+                                height: 60%;
+                                background: red;
+                                position: relative;
+                                color: white;
+                                @include center;
+                                font-size: 45px;
+                            }
+
+                            .clock {
+                                width: 100%;
+                                height: 15%;
+                                background: black;
+                                position: relative;
+                                color: white;
+                                @include center;
+                            }
+                        }
+
+
+                    }
+
+                    .related {
+                        width: 100%;
+                        height: 20%;
+                        position: relative;
+                        background: gray;
+                        display: flex;
+
+                        .contact {
+                            width: auto;
+                            height: 100%;
+                            position: relative;
+                            background: red;
+                            padding: 0 1% 0 1%;
+                            display: flex;
+                            align-items: center;
+                            color: white;
+                            font-weight: bold;
+                            font-size: 25px;
+                        }
+
+                        .related-articles {
+                            width: 95%;
+                            height: 100%;
+                            position: relative;
+                            background: black;
+                            color: white;
+                            display: flex;
+                            align-items: center;
+                            font-size: 25px;
+                            @include breaking-news-spacing();
+                        }
+                    }                        
+                }
+            }
+        }
+    }
+}
